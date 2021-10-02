@@ -7,7 +7,7 @@ namespace Fumiko.Common
         public Vector3 offset;
         public Transform target;
 
-        private void Update()
+        private void FixedUpdate()
         {
             this.transform.position = target.transform.position + offset;
         }
