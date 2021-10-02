@@ -1018,6 +1018,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: -3736096401777429167, guid: f2f973719791875cc90c6e8c2e7a64ff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -2846419503669629836, guid: f2f973719791875cc90c6e8c2e7a64ff, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1037,6 +1041,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f2f973719791875cc90c6e8c2e7a64ff, type: 3}
       propertyPath: m_Name
       value: ld49_level
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128498329743729161, guid: f2f973719791875cc90c6e8c2e7a64ff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3651155813419085763, guid: f2f973719791875cc90c6e8c2e7a64ff, type: 3}
       propertyPath: m_TagString
@@ -3940,7 +3948,7 @@ Transform:
   m_LocalScale: {x: 1, y: 2.870414, z: 1}
   m_Children: []
   m_Father: {fileID: 1428882634}
-  m_RootOrder: 74
+  m_RootOrder: 73
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1867046636
 BoxCollider:
@@ -4334,8 +4342,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1467933824}
-  positionLerpFactor: 10
-  rotationLerpFactor: 5
+  positionLerpFactor: 80
+  rotationLerpFactor: 10
   disablePositionLerp: 0
 --- !u!1 &2008940967
 GameObject:

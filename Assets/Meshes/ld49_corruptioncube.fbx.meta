@@ -3,7 +3,12 @@ guid: 9a94bb9ac77485900b356a1690a6322c
 ModelImporter:
   serializedVersion: 21100
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Corruption_Cube
+    second: {fileID: 2100000, guid: a0dc3f30b600d4f2faa403e18d603f1d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
