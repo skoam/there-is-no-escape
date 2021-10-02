@@ -3,7 +3,7 @@ using Fumiko.Systems.Input;
 
 public class SimpleCameraController : MonoBehaviour
 {
-    class CameraState
+    public class CameraState
     {
         public float yaw;
         public float pitch;
@@ -14,12 +14,19 @@ public class SimpleCameraController : MonoBehaviour
         private Transform myTransform;
         private float myHeight;
 
+        private bool falling;
+
+        private float currentFallSpeed = 0;
+        private float maxFallSpeed = 4f;
+
         private float newX;
         private float newY;
         private float newZ;
 
         public bool movementDisabled;
         public Transform copyLocation;
+
+        public Vector3 lastKnownPosition;
 
         public void SetFromTransform(Transform t, float height)
         {
@@ -31,6 +38,13 @@ public class SimpleCameraController : MonoBehaviour
             position.z = t.position.z;
             myTransform = t;
             myHeight = height;
+        }
+
+        public void ApplyCurrentPosition()
+        {
+            position.x = myTransform.position.x;
+            position.y = myTransform.position.y;
+            position.z = myTransform.position.z;
         }
 
         public void Translate(Vector3 translation)
@@ -47,7 +61,7 @@ public class SimpleCameraController : MonoBehaviour
             RaycastHit[] hits = Physics.RaycastAll(
                 newPosition,
                 Vector3.down,
-                myHeight + myHeight / 2f
+                myHeight + 0.2f
             );
 
             bool notGround = false;
@@ -55,6 +69,7 @@ public class SimpleCameraController : MonoBehaviour
 
             if (hits.Length == 0)
             {
+                falling = true;
                 notGround = true;
             }
 
@@ -73,9 +88,30 @@ public class SimpleCameraController : MonoBehaviour
 
             if (!notGround)
             {
+                falling = false;
+                currentFallSpeed = 0;
+
                 validPosition.x = newPosition.x;
                 validPosition.y = groundPoint.y + myHeight;
                 validPosition.z = newPosition.z;
+
+                lastKnownPosition = validPosition;
+            }
+
+            if (notGround && falling)
+            {
+                if (currentFallSpeed < maxFallSpeed)
+                {
+                    currentFallSpeed += 1.5f * Time.deltaTime;
+
+                    validPosition.x = newPosition.x;
+                    validPosition.y = myTransform.position.y - currentFallSpeed;
+                    validPosition.z = newPosition.z;
+                }
+                else
+                {
+                    validPosition = lastKnownPosition;
+                }
             }
 
             return validPosition;
@@ -88,8 +124,17 @@ public class SimpleCameraController : MonoBehaviour
             roll = Mathf.Lerp(roll, target.roll, rotationLerpPct);
 
             position.x = Mathf.Lerp(position.x, target.position.x, positionLerpPct);
-            position.y = Mathf.Lerp(position.y, target.position.y, positionLerpPct);
-            position.z = Mathf.Lerp(position.z, target.position.z, positionLerpPct);
+
+            if (!falling)
+            {
+                position.y = target.position.y;
+            }
+            else
+            {
+                position.y = Mathf.Lerp(position.y, target.position.y, positionLerpPct);
+            }
+
+            position.z = Mathf.Lerp(position.z, target.position.z, positionLerpPct / 2);
         }
 
         public void UpdateTransform(Transform t)
@@ -102,8 +147,8 @@ public class SimpleCameraController : MonoBehaviour
     public bool movementDisabled;
     public Transform copyLocation;
 
-    CameraState m_TargetCameraState = new CameraState();
-    CameraState m_InterpolatingCameraState = new CameraState();
+    public CameraState m_TargetCameraState = new CameraState();
+    public CameraState m_InterpolatingCameraState = new CameraState();
 
     [Header("Movement Settings")]
     public float boost = 2;

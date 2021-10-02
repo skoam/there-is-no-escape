@@ -129,7 +129,13 @@ namespace Fumiko.Interaction.Interactable
 
             if (!tracking.player)
             {
-                tracking.player = GameObject.FindGameObjectWithTag(tracking.PlayerTag).transform;
+                GameObject player = GameObject.FindGameObjectWithTag(tracking.PlayerTag);
+
+                if (player)
+                {
+                    tracking.player = player.transform;
+                }
+
                 return;
             }
 
