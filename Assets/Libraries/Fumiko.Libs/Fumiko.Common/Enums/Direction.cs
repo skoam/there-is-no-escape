@@ -1,0 +1,12 @@
+namespace Fumiko.Common
+{
+    public enum Direction
+    {
+        FORWARD,
+        BACKWARD,
+        LEFT,
+        RIGHT,
+        UP,
+        DOWN
+    }
+}
