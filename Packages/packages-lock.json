@@ -7,6 +7,13 @@
       "dependencies": {},
       "hash": "a9add4cc9ffc4efd85384415153ed1972723c691"
     },
+    "com.elzach.objectpooling": {
+      "version": "https://github.com/NoArtistAvailable/elzach-objectpooling.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "ffef3b00e7f29d6fd20158cfd91a78d55aa1990f"
+    },
     "com.unity.collab-proxy": {
       "version": "1.9.0",
       "depth": 0,

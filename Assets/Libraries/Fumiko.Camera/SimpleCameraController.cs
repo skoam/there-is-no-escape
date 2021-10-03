@@ -77,8 +77,11 @@ public class SimpleCameraController : MonoBehaviour
             {
                 if (hits[i].transform.tag != "Ground")
                 {
-                    notGround = true;
-                    i = hits.Length;
+                    if (hits[i].transform.tag != "IgnoreCollision")
+                    {
+                        notGround = true;
+                        i = hits.Length;
+                    }
                 }
                 else
                 {

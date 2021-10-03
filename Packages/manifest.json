@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "com.elzach.extensions": "https://github.com/NoArtistAvailable/elzach-extensions.git",
+    "com.elzach.objectpooling": "https://github.com/NoArtistAvailable/elzach-objectpooling.git",
     "com.unity.collab-proxy": "1.9.0",
     "com.unity.ide.rider": "3.0.7",
     "com.unity.ide.visualstudio": "2.0.11",
