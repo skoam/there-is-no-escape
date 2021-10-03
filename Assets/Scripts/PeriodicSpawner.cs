@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using Fumiko.Systems.Input;
+
 namespace InfectiousVoid
 {
     public class PeriodicSpawner : MonoBehaviour
@@ -12,6 +14,8 @@ namespace InfectiousVoid
         public GameObject[] prefab;
         Component prefabBehaviour;
         public SpawnSamples spawnType = SpawnSamples.Spawn;
+        public bool spawnOnKeyPress;
+        public InputCases key;
         public float spawnTime = 1f;
         public bool spawnTimeIsRandom = false;
         public float radius = 1f;
@@ -42,9 +46,22 @@ namespace InfectiousVoid
                 nextRandomSpawnTime = Random.Range(0, spawnTime);
             }
 
+            if (spawnOnKeyPress && !InputMapSystem.instance.getButtonHold(key))
+            {
+                currentTime = spawnTime;
+            }
+
             if (currentTime > (spawnTimeIsRandom ? nextRandomSpawnTime : spawnTime))
             {
-                Spawn();
+                if (spawnOnKeyPress && InputMapSystem.instance.getButtonHold(key))
+                {
+                    Spawn();
+                }
+                else if (!spawnOnKeyPress)
+                {
+                    Spawn();
+                }
+
                 currentTime = 0;
                 nextRandomSpawnTime = 0;
             }

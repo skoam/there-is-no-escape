@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class RandomStartVelocity : MonoBehaviour
 {
+    public bool useForwardFromOther;
+    public string other;
+    public float forwardIntensity = 1;
     public Vector3 spawnVelocity = Vector3.zero;
     public float spawnTorque2D = 0;
     public Vector3 spawnTorque3D = Vector3.zero;
@@ -66,6 +69,19 @@ public class RandomStartVelocity : MonoBehaviour
             else
             {
                 this.transform.GetComponent<Rigidbody>().AddTorque(spawnTorque3D);
+            }
+
+            if (useForwardFromOther)
+            {
+                GameObject otherGameObject = GameObject.FindGameObjectWithTag(other);
+
+                if (otherGameObject)
+                {
+                    this.transform.GetComponent<Rigidbody>().AddForce(
+                        otherGameObject.transform.forward * forwardIntensity,
+                        ForceMode.Impulse
+                    );
+                }
             }
         }
     }
