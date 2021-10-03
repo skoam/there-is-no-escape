@@ -11,7 +11,9 @@ namespace Fumiko.Interaction.Interactable.Actions
         public TriggeredActionSettings settings;
         TriggeredActionCachedValues cachedValues = new TriggeredActionCachedValues();
 
-        public Sound.Sound sound;
+        public AudioSource targetAudioSource;
+        public string findByTag;
+        public AudioClip sound;
         public float level = 1;
 
         public string ActionName
@@ -40,15 +42,23 @@ namespace Fumiko.Interaction.Interactable.Actions
 
         public void Initialize(GameObject parent)
         {
+            if (!targetAudioSource)
+            {
+                GameObject sourceGameObject = GameObject.FindGameObjectWithTag(findByTag);
 
+                if (sourceGameObject)
+                {
+                    targetAudioSource = sourceGameObject.GetComponent<AudioSource>();
+                }
+            }
         }
 
         public void Run(GameObject parent)
         {
-            SoundSystem.instance.PlaySound(
-                sound,
-                level
-            );
+            if (targetAudioSource)
+            {
+                targetAudioSource.PlayOneShot(sound, level);
+            }
         }
 
         public void Revert(GameObject parent)

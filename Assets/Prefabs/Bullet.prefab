@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: -4523899392990585179}
   - component: {fileID: 6366003680912621268}
   - component: {fileID: 2916559922667321799}
+  - component: {fileID: 8334387124270964331}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -241,6 +242,37 @@ MonoBehaviour:
   - useFromHitBox: 1
     gameObject: {fileID: 0}
     state: 1
+--- !u!114 &8334387124270964331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4065548142230108661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ea9c56646918354b84e468b7a997b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 62cc6c4ec50ebf6879e015fa15933857, type: 3}
+  targetAudioSource: {fileID: 0}
+  findByTag: AudioFX
+  level: 1
+  OneShot: 1
+  loop: 0
+  disableAfter: 0
+  OnEnabled: 0
+  OnStart: 1
+  OnRepeat: 0
+  randomRepeats: 0
+  randomRepeatTime: 0
+  repeatPauses: 10
+  OnMinDistance: 0
+  OnMaxDistance: 0
+  target: {fileID: 0}
+  randomizeCurrent: 0
+  distance: 0
 --- !u!1 &7915181008113904970
 GameObject:
   m_ObjectHideFlags: 0
@@ -5058,6 +5090,7 @@ GameObject:
   - component: {fileID: 591331782919055606}
   - component: {fileID: 177319791721341758}
   - component: {fileID: 1405358014111711604}
+  - component: {fileID: 2375221201224940311}
   m_Layer: 0
   m_Name: Particles_Hit
   m_TagString: Untagged
@@ -9853,3 +9886,34 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &2375221201224940311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8302953958542627941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ea9c56646918354b84e468b7a997b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 009ad11e41147b1f08d96c3eae98197b, type: 3}
+  targetAudioSource: {fileID: 0}
+  findByTag: AudioAmbient
+  level: 1
+  OneShot: 1
+  loop: 0
+  disableAfter: 0
+  OnEnabled: 0
+  OnStart: 1
+  OnRepeat: 0
+  randomRepeats: 0
+  randomRepeatTime: 0
+  repeatPauses: 10
+  OnMinDistance: 0
+  OnMaxDistance: 0
+  target: {fileID: 0}
+  randomizeCurrent: 0
+  distance: 0

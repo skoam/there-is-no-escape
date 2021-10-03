@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1259027957732319613}
   - component: {fileID: 1259027957732319612}
+  - component: {fileID: 2250324104092813069}
   m_Layer: 0
   m_Name: SpawnsCorruption
   m_TagString: Untagged
@@ -60,6 +61,37 @@ MonoBehaviour:
   spawnCount: 1
   maximumSpawns: 10
   despawnTime: 10
+--- !u!114 &2250324104092813069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259027957732319614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ea9c56646918354b84e468b7a997b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: b3c66f7a991865ef2bf0659d8fce375b, type: 3}
+  targetAudioSource: {fileID: 0}
+  findByTag: AudioFX
+  level: 1
+  OneShot: 1
+  loop: 0
+  disableAfter: 0
+  OnEnabled: 0
+  OnStart: 1
+  OnRepeat: 0
+  randomRepeats: 0
+  randomRepeatTime: 0
+  repeatPauses: 10
+  OnMinDistance: 0
+  OnMaxDistance: 0
+  target: {fileID: 0}
+  randomizeCurrent: 0
+  distance: 0
 --- !u!1 &2156589422684300093
 GameObject:
   m_ObjectHideFlags: 0

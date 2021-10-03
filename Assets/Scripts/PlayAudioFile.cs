@@ -6,7 +6,9 @@ public class PlayAudioFile : MonoBehaviour
 {
     public AudioClip[] clips;
     public AudioSource targetAudioSource;
+    public string findByTag;
 
+    public float level = 1;
     public bool OneShot = true;
     public bool loop = false;
     public bool disableAfter = false;
@@ -81,6 +83,21 @@ public class PlayAudioFile : MonoBehaviour
 
     void Play()
     {
+        if (findByTag.Length > 0)
+        {
+            GameObject sourceGameObject = GameObject.FindGameObjectWithTag(findByTag);
+
+            if (sourceGameObject)
+            {
+                targetAudioSource = sourceGameObject.GetComponent<AudioSource>();
+            }
+        }
+
+        if (!targetAudioSource)
+        {
+            return;
+        }
+
         if (randomizeCurrent)
         {
             currentClip = Random.Range(0, clips.Length);
@@ -88,7 +105,7 @@ public class PlayAudioFile : MonoBehaviour
 
         if (OneShot)
         {
-            targetAudioSource.PlayOneShot(clips[currentClip]);
+            targetAudioSource.PlayOneShot(clips[currentClip], level);
         }
         else
         {

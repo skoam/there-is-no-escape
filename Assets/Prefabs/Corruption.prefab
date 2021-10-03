@@ -4822,6 +4822,7 @@ GameObject:
   - component: {fileID: 2702053051591228298}
   - component: {fileID: -9162143283754039543}
   - component: {fileID: -7154796975000881110}
+  - component: {fileID: 2010230605385539597}
   m_Layer: 0
   m_Name: Corruption
   m_TagString: Corruption
@@ -5000,6 +5001,26 @@ MonoBehaviour:
     descriptionTextTuple: []
     locked: 0
   collisionTag: 
+--- !u!114 &2010230605385539597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692611842807807856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b3728f94fb94c4089e42dba9e5b9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: Play Sound Action
+  settings:
+    restorationMethod: 1
+    runMethod: 1
+  targetAudioSource: {fileID: 0}
+  findByTag: AudioAmbient
+  sound: {fileID: 8300000, guid: ce65ef9b976898c5389bfaf6993cf1aa, type: 3}
+  level: 1
 --- !u!1 &4957835600603993760
 GameObject:
   m_ObjectHideFlags: 0

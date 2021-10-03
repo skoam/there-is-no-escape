@@ -9,6 +9,9 @@ TagManager:
   - PlayerFeet
   - Collision
   - Corruption
+  - AudioFX
+  - AudioMusic
+  - AudioAmbient
   layers:
   - Default
   - TransparentFX
