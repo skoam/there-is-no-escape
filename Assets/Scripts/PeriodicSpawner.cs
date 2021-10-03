@@ -16,11 +16,14 @@ namespace InfectiousVoid
         public SpawnSamples spawnType = SpawnSamples.Spawn;
         public bool spawnOnKeyPress;
         public InputCases key;
+        public bool spawnOnStart;
         public float spawnTime = 1f;
         public bool spawnTimeIsRandom = false;
         public float radius = 1f;
         public bool spawnOnHorizontalLine = false;
         public bool spawnInZ = false;
+        public bool checkGround;
+        public bool parentToSpawner;
         public int spawnCount = 1;
         public int maximumSpawns = 200;
 
@@ -34,6 +37,10 @@ namespace InfectiousVoid
 
         void Start()
         {
+            if (spawnOnStart)
+            {
+                Spawn();
+            }
         }
 
         private void Update()
@@ -139,7 +146,16 @@ namespace InfectiousVoid
                         randomCircleIn3D.y = 0;
                     }
 
-                    clone.transform.position = transform.position + randomCircleIn3D;
+                    if (parentToSpawner)
+                    {
+                        clone.transform.parent = this.transform;
+                        clone.transform.localPosition = Vector3.zero;
+                        clone.transform.position = clone.transform.position + randomCircleIn3D;
+                    }
+                    else
+                    {
+                        clone.transform.position = transform.position + randomCircleIn3D;
+                    }
 
                     spawned.Add(clone);
                     spawnedTime.Add(Time.time);

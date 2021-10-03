@@ -5,6 +5,7 @@ namespace Fumiko.Common
     [System.Serializable]
     public class GameObjectStatePair
     {
+        public bool useFromHitBox;
         public GameObject gameObject;
         public EnabledState state;
     }

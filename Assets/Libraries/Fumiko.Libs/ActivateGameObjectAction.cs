@@ -46,6 +46,16 @@ namespace Fumiko.Interaction.Interactable.Actions
         {
             foreach (GameObjectStatePair target in targets)
             {
+                if (target.useFromHitBox)
+                {
+                    target.gameObject = parent.GetComponent<Interactable>().tracking.hitOrigin.gameObject;
+
+                    if (!target.gameObject)
+                    {
+                        return;
+                    }
+                }
+
                 if (target.state == EnabledState.ENABLED)
                 {
                     target.gameObject.SetActive(true);

@@ -41,6 +41,11 @@ public class RandomStartVelocity : MonoBehaviour
 
         if (this.transform.GetComponent<Rigidbody>())
         {
+            this.transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            this.transform.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+            this.transform.GetComponent<Rigidbody>().rotation = Quaternion.identity;
+            this.transform.GetComponent<Rigidbody>().position = this.transform.position;
+
             if (randomVelocity)
             {
                 this.transform.GetComponent<Rigidbody>().AddForce(

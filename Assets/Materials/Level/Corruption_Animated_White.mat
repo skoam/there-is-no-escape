@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Corruption_Animated
+  m_Name: Corruption_Animated_White
   m_Shader: {fileID: -6465566751694194690, guid: 1cbb3f7eb392b802e829f971a80fb64a, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -86,8 +86,8 @@ Material:
     m_Ints: []
     m_Floats:
     - Imprecision: 10
-    - Metallic: 0.91
-    - Smoothness: 0.5
+    - Metallic: 0
+    - Smoothness: 0
     - Speed: 10
     - _AlphaClip: 0
     - _Blend: 0
@@ -117,6 +117,7 @@ Material:
     - _UVSec: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
+    - colorIntensity: 50
     - contrast: 0
     - normalIntensity: 8
     m_Colors:

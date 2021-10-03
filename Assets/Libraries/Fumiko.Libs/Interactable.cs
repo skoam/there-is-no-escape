@@ -19,6 +19,8 @@ namespace Fumiko.Interaction.Interactable
 
         public InteractableSettings settings;
 
+        public string collisionTag;
+
         private ITriggeredAction[] actions;
 
         private bool activated;
@@ -48,10 +50,6 @@ namespace Fumiko.Interaction.Interactable
                 forceActivation = true;
             }
 
-            /*if (useHitBoxCalculations)
-            {
-                hitboxCalculator.initialize(this.transform.gameObject);
-            }*/
         }
 
         public ITriggeredAction[] Actions
@@ -68,6 +66,17 @@ namespace Fumiko.Interaction.Interactable
             {
                 tracking.hitOrigin = hitOrigin;
                 forceActivation = true;
+            }
+        }
+
+        public void OnCollisionEnter(Collision collision)
+        {
+            if (!Paused && settings.triggerMethod == InteractableTriggerMethods.HITBOX)
+            {
+                if (collision.collider.gameObject.tag == collisionTag)
+                {
+                    Hit(collision.collider.transform);
+                }
             }
         }
 
