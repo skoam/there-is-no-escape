@@ -4890,8 +4890,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cf2177741153df41a9052ed6b684461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minRandomSize: 0.5
-  maxRandomSize: 2
+  minRandomSize: 1
+  maxRandomSize: 1.5
   maxRandomRotation: 180
   rotateX: 1
   rotateY: 1
@@ -4911,9 +4911,9 @@ MonoBehaviour:
   useForwardFromOther: 0
   other: 
   forwardIntensity: 1
-  spawnVelocity: {x: 1, y: 8, z: 1}
+  spawnVelocity: {x: 4, y: 8, z: 4}
   spawnTorque2D: 0
-  spawnTorque3D: {x: 1, y: 0, z: 1}
+  spawnTorque3D: {x: 1, y: 1, z: 1}
   randomVelocity: 1
   randomTorque: 1
 --- !u!114 &2702053051591228298
