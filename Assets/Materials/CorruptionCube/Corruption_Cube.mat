@@ -33,11 +33,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Normal:
-        m_Texture: {fileID: 2800000, guid: cbc77ea60bb622782b98f1d564a769a1, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5dff42e04ed798c709bc3efc4b75cc2b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture:
-        m_Texture: {fileID: 2800000, guid: 9c13f33fccb4fa502848d1662613e014, type: 3}
+        m_Texture: {fileID: 2800000, guid: 20d446429a41a72a58849997f8fae280, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -99,9 +99,9 @@ Material:
     m_Ints: []
     m_Floats:
     - Imprecision: 10
-    - Metallic: 0.73
-    - Smoothness: 0.8
-    - Speed: 5
+    - Metallic: 0.91
+    - Smoothness: 0.5
+    - Speed: 10
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
