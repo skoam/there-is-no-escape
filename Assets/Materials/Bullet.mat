@@ -112,7 +112,7 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Shininess: 0
-    - _Smoothness: 0.152
+    - _Smoothness: 0.227
     - _SmoothnessSource: 0
     - _SmoothnessTextureChannel: 0
     - _SpecSource: 0
@@ -122,8 +122,8 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.6084906, g: 0.8540736, b: 1, a: 0.8156863}
+    - _BaseColor: {r: 0, g: 0.9286413, b: 1, a: 0.8156863}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SpecColor: {r: 0, g: 2.9960787, b: 1.647059, a: 0.152}
+    - _SpecColor: {r: 0, g: 5.9921575, b: 4.3921576, a: 0.227}
   m_BuildTextureStacks: []
