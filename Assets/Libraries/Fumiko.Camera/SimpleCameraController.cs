@@ -11,6 +11,8 @@ public class SimpleCameraController : MonoBehaviour
 
         public Vector3 position = Vector3.zero;
 
+        public Attributes attributes;
+
         private Transform myTransform;
         private float myHeight;
 
@@ -114,6 +116,12 @@ public class SimpleCameraController : MonoBehaviour
                 else
                 {
                     validPosition = lastKnownPosition;
+
+                    if (attributes)
+                    {
+                        attributes.health -= 1;
+                        attributes.invincible = attributes.invincibilitySecondsOnHit;
+                    }
                 }
             }
 
@@ -183,6 +191,12 @@ public class SimpleCameraController : MonoBehaviour
     public float rotationSpeedX = 80f;
     public float rotationSpeedY = 70f;
 
+    public float rotationSpeedXMax = 80f;
+    public float rotationSpeedYMax = 80f;
+
+    public float rotationSpeedXMin = 2f;
+    public float rotationSpeedYMin = 2f;
+
     private float maxMouseMagnitudeX = 0.1f;
     private float maxMouseMagnitudeY = 0.1f;
 
@@ -193,6 +207,9 @@ public class SimpleCameraController : MonoBehaviour
     {
         m_TargetCameraState.SetFromTransform(transform, height);
         m_InterpolatingCameraState.SetFromTransform(transform, height);
+
+        m_TargetCameraState.attributes = this.GetComponent<Attributes>();
+        m_InterpolatingCameraState.attributes = this.GetComponent<Attributes>();
     }
 
     Vector3 GetInputTranslationDirection()
@@ -229,15 +246,11 @@ public class SimpleCameraController : MonoBehaviour
 
     void Update()
     {
-        // Exit Sample  
+        rotationSpeedX += Input.mouseScrollDelta.y;
+        rotationSpeedY += Input.mouseScrollDelta.y;
 
-        if (IsEscapePressed())
-        {
-            Application.Quit();
-#if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-#endif
-        }
+        rotationSpeedX = Mathf.Clamp(rotationSpeedX, rotationSpeedXMin, rotationSpeedXMax);
+        rotationSpeedY = Mathf.Clamp(rotationSpeedY, rotationSpeedYMin, rotationSpeedYMax);
 
         Vector3 mouseMovement = GetInputLookRotation();
         if (invertY)
@@ -306,10 +319,5 @@ public class SimpleCameraController : MonoBehaviour
     {
         return InputMapSystem.instance.getInput(InputCases.SPECIAL) > 0;
 
-    }
-
-    bool IsEscapePressed()
-    {
-        return InputMapSystem.instance.getInput(InputCases.MENU) > 0;
     }
 }

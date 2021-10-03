@@ -34,8 +34,7 @@ namespace Alakajam13th
                 if (InputMapSystem.instance.getButtonDown(InputCases.MENU))
                 {
                     DynamicUISystem.instance.unprotectUIElement(UIElements.GAME_TITLE, this.gameObject);
-                    Scene currentScene = SceneManager.GetActiveScene();
-                    SceneManager.LoadScene(currentScene.name);
+                    SceneManager.LoadScene("Loading");
                 }
             }
         }
