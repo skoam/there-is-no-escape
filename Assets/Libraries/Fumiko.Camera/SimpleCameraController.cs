@@ -17,7 +17,7 @@ public class SimpleCameraController : MonoBehaviour
         private bool falling;
 
         private float currentFallSpeed = 0;
-        private float maxFallSpeed = 4f;
+        private float maxFallSpeed = 6f;
 
         private float newX;
         private float newY;
